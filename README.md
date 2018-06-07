@@ -29,7 +29,7 @@ The target use-case is one where HttpErrors are necessary, and planned, and thro
 
 Here's the view of a real error vs an HttpError:
 
-[!rollbar.png]
+![Rollbar view](rollbar.png)
 
 ### Using in the app
 
