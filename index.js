@@ -43,7 +43,7 @@ const reportError = wrapRollbarFunction('error');
  * the JSON body and headers when caught by our middleware.
  */
 class HttpError extends Error {
-  constructor(status, message, headers = {}, body = {}) {
+  constructor(status, message, headers = {}, body = {}, custom = undefined) {
     super(message);
     if (typeof status !== 'number') {
       throw new Error(`Expected HttpError status to be a number, got ${typeof status}`);
@@ -51,10 +51,14 @@ class HttpError extends Error {
     if (typeof body !== 'object') {
       throw new Error(`Expected body to be an object, got ${typeof body}`);
     }
+    if (custom && (typeof custom !== 'object')) {
+      throw new Error(`Expected custom to be an object, got ${typeof custom}`);
+    }
     this.name = `[${status}]`;
     this.status = status;
     this.headers = headers;
     this.body = body;
+    this.custom = custom;
     if (!this.body.hasOwnProperty('error')) {
       body.error = message;
     }
@@ -130,10 +134,14 @@ class HttpError extends Error {
         }
         // Sync with Rollbar, or the console
         if (err.hasOwnProperty('status')) {
-          reportInfo(err, request);
+          reportInfo(err, request, {
+            custom: error.custom,
+          });
         }
         else {
-          reportError(err, request);
+          reportError(err, request, {
+            custom: error.custom,
+          });
         }
 
         // Response: status

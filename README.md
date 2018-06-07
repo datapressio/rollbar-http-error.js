@@ -64,13 +64,22 @@ Send custom HTTP headers:
       throw new HttpError(401, 'JWT timed out', headers);
     }
 
-Send custom JSON body:
+Send custom JSON body in the client response:
 
     if (error_details.length) {
       const body = {
         error_details,
       };
       throw new HttpError(403, 'Encountered several errors', {}, body);
+    }
+
+Send custom properties to Rollbar
+
+    if (error_details.length) {
+      const custom = {
+        error_details,
+      };
+      throw new HttpError(403, 'Encountered several errors', {}, {}, custom);
     }
 
 Send a good old fashioned 500 error and report the error to rollbar:
