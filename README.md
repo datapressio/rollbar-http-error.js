@@ -23,7 +23,7 @@ Usage with Express:
 
 If `rollbarToken` is null or undefined, then errors will be printed to the console.
 
-### View from Rollbar.js
+## View from Rollbar.js
 
 The target use-case is one where HttpErrors are necessary, and planned, and thrown out to the Express middleware to be delivered to the user. It's important to track them in Rollbar but they're not critical issues and they should not trigger alerts.
 
@@ -31,7 +31,7 @@ Here's the view of a real error vs an HttpError:
 
 ![Rollbar view](rollbar.png)
 
-### Using in the app
+## Using in the app
 
 Inside your app, throw errors:
 
@@ -79,3 +79,12 @@ Send a good old fashioned 500 error and report the error to rollbar:
       throw new Error('Application error: No db is defined');
     }
 
+## Reporting to Rollbar
+
+It is possible to access Rollbar directly, either as `debug`, `warning`, `info`, or `error`. This will print to the console if no Rollbar token was passed to the middleware:
+
+    HttpError.report.warning('This should not happen', req);
+    
+It is possible to access the raw rollbar instance. This will return `undefined` if no Rollbar token was passed to the middleware:
+
+    const rollbar = HttpError.rollbar();
