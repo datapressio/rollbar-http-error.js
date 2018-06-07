@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/zephod/rollbar-http-error.js/issues"
   },
-  "homepage": "https://github.com/zephod/rollbar-http-error.js#readme"
+  "homepage": "https://github.com/zephod/rollbar-http-error.js#readme",
+  "dependencies": {
+    "pretty-error": "^2.1.1",
+    "rollbar": "^2.4.1"
+  }
 }
