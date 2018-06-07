@@ -84,6 +84,12 @@ class HttpError extends Error {
 
   // --------------
 
+  static rollbar() {
+    return rollbar;
+  }
+
+  // --------------
+
   static get report() {
     return {
       debug: reportDebug,
