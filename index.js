@@ -64,6 +64,19 @@ class HttpError extends Error {
     }
   }
 
+  withBody(key, value) {
+    this.body[key] = value;
+    return this;
+  }
+
+  withCustom(key, value) {
+    if (this.custom === undefined) {
+      this.custom = {};
+    }
+    this.custom[key] = value;
+    return this;
+  }
+
   // --------------
   //
   static badRequest(message) {
@@ -135,12 +148,12 @@ class HttpError extends Error {
         // Sync with Rollbar, or the console
         if (err.hasOwnProperty('status')) {
           reportInfo(err, request, {
-            custom: error.custom,
+            custom: err.custom,
           });
         }
         else {
           reportError(err, request, {
-            custom: error.custom,
+            custom: err.custom,
           });
         }
 

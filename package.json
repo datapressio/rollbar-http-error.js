@@ -1,10 +1,11 @@
 {
   "name": "rollbar-http-error",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "HttpError class and Express middleware for gracefully handling planned errors (eg. 403, 403). Wraps rollbar.js",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "eslint": "eslint . --ext .js,.vue",
+    "test": "npm run eslint *.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,11 @@
   "dependencies": {
     "pretty-error": "^2.1.1",
     "rollbar": "^2.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-datapress": "^2.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-no-foreach": "^1.0.0"
   }
 }
