@@ -64,16 +64,20 @@ class HttpError extends Error {
     }
   }
 
-  withBody(key, value) {
-    this.body[key] = value;
+  withBody(obj) {
+    for (const key of Object.keys(obj)) {
+      this.body[key] = obj[key];
+    }
     return this;
   }
 
-  withCustom(key, value) {
+  withCustom(obj) {
     if (this.custom === undefined) {
       this.custom = {};
     }
-    this.custom[key] = value;
+    for (const key of Object.keys(obj)) {
+      this.custom[key] = obj[key];
+    }
     return this;
   }
 
