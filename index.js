@@ -151,14 +151,10 @@ class HttpError extends Error {
         }
         // Sync with Rollbar, or the console
         if (err.hasOwnProperty('status')) {
-          reportInfo(err, request, {
-            custom: err.custom,
-          });
+          reportInfo(err, request, err.custom);
         }
         else {
-          reportError(err, request, {
-            custom: err.custom,
-          });
+          reportError(err, request, err.custom);
         }
 
         // Response: status

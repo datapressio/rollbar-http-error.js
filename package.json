@@ -1,6 +1,6 @@
 {
   "name": "rollbar-http-error",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "HttpError class and Express middleware for gracefully handling planned errors (eg. 403, 403). Wraps rollbar.js",
   "main": "index.js",
   "scripts": {
