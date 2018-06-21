@@ -126,13 +126,13 @@ class HttpError extends Error {
    * Middleware used to gracefully handle errors. If they're planned
    * then log them as rollbar.info(). Unplanned go in as errors.
    */
-  static middleware(accessToken, environment = 'production') {
-    if (accessToken) {
-      rollbar = new Rollbar({
-        accessToken,
-        environment,
-      });
-      console.log(`Connecting to Rollbar [environment=${environment}]`);
+  static middleware(options) {
+    if (!options.environment) {
+      options.environment = 'production';
+    }
+    if (options.accessToken) {
+      rollbar = new Rollbar(options);
+      console.log(`Connecting to Rollbar [environment=${options.environment}]`);
     }
     else {
       console.log('No Rollbar token is set. Errors will go to console.log');
