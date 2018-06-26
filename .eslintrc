@@ -1,5 +1,5 @@
 {
-  "extends": "datapress",
+  "extends": "airdrive",
   "rules": {
     "no-plusplus": [0]
   }
