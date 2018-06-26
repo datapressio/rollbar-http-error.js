@@ -1,6 +1,6 @@
 {
   "name": "rollbar-http-error",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "HttpError class and Express middleware for gracefully handling planned errors (eg. 403, 403). Wraps rollbar.js",
   "main": "index.js",
   "scripts": {
@@ -9,21 +9,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zephod/rollbar-http-error.js.git"
+    "url": "git+https://github.com/airdrivehq/rollbar-http-error.js.git"
   },
-  "author": "Tom Rees",
+  "author": "AirDrive",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zephod/rollbar-http-error.js/issues"
+    "url": "https://github.com/airdrivehq/rollbar-http-error.js/issues"
   },
-  "homepage": "https://github.com/zephod/rollbar-http-error.js#readme",
+  "homepage": "https://github.com/airdrivehq/rollbar-http-error.js#readme",
   "dependencies": {
     "pretty-error": "^2.1.1",
     "rollbar": "^2.4.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
-    "eslint-config-datapress": "^2.0.0",
+    "eslint-config-airdrive": "^2.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-no-foreach": "^1.0.0"
   }
