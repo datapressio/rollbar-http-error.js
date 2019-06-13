@@ -26,6 +26,11 @@ function wrapRollbarFunction (functionName) {
       } else {
         console.log(`[${functionName}]: ${JSON.stringify(arg, null, 2)}`)
       }
+      if (arg.custom) {
+        console.log('--- begin: custom error data >>>')
+        console.log(JSON.stringify(arg.custom, null, 2))
+        console.log('--- end: custom error data')
+      }
     }
   }
 }
@@ -63,8 +68,12 @@ class HttpError extends Error {
   }
 
   withBody (obj) {
+    if (this.custom === undefined) {
+      this.custom = {}
+    }
     for (const key of Object.keys(obj)) {
       this.body[key] = obj[key]
+      this.custom[key] = obj[key]
     }
     return this
   }
