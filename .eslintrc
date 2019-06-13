@@ -1,6 +1,5 @@
-{
-  "extends": "airdrive",
-  "rules": {
-    "no-plusplus": [0]
-  }
-}
+extends:
+  - standard
+  - plugin:import/errors
+rules:
+  import/no-unresolved: ['error', {commonjs: true}]

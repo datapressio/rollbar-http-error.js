@@ -4,27 +4,29 @@
   "description": "HttpError class and Express middleware for gracefully handling planned errors (eg. 403, 403). Wraps rollbar.js",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint . --ext .js,.vue",
+    "eslint": "eslint . --ext .js",
     "test": "npm run eslint *.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airdrivehq/rollbar-http-error.js.git"
+    "url": "git+https://github.com/datapressio/rollbar-http-error.js.git"
   },
-  "author": "AirDrive",
+  "author": "DataPress",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/airdrivehq/rollbar-http-error.js/issues"
+    "url": "https://github.com/datapressio/rollbar-http-error.js/issues"
   },
-  "homepage": "https://github.com/airdrivehq/rollbar-http-error.js#readme",
+  "homepage": "https://github.com/datapressio/rollbar-http-error.js#readme",
   "dependencies": {
     "pretty-error": "^2.1.1",
-    "rollbar": "^2.4.1"
+    "rollbar": "^2.7.1"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-airdrive": "^2.0.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-no-foreach": "^1.0.0"
+    "eslint": "^5.14.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
   }
 }
