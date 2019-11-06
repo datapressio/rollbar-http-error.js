@@ -172,6 +172,9 @@ class HttpError extends Error {
         }
         // Response: Body
         const body = err.hasOwnProperty('body') ? err.body : { error: err.message }
+        if (process.env.NODE_ENV === 'test') {
+          body.debug = err.stack.split('\n').filter((x) => !x.includes('node_modules/express'))
+        }
         response.json(body)
       } catch (e) {
         try {
